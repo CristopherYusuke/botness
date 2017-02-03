@@ -22,12 +22,18 @@ app.get('/token/:token',function (req,res) {
     if(token == "marcao"){
         // retorno.messages.push({text:"Olá marcao tudo bom com voce ?"})
         retorno = {
-          "go_to_block":
-            {
-              "block_name": "relatorio"
-            },
-          "messages":[]
+  "messages": [
+    {
+      "text":  "Valid age to register is 21 and over. At this time we do not lend money to customers under the age of 21.",
+      "quick_replies": [
+        {
+          "title":"Ok! Continue",
+          "block_names":["end_conversation"]
         }
+      ]
+    }
+  ]
+}
     }else{
         retorno.messages.push({text:"Token invalido!"})
     }
