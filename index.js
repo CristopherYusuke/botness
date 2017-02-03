@@ -1,25 +1,17 @@
-'use strict';
+var express = require('express');
+var app = express();
 
-const
-  bodyParser = require('body-parser'),
-  config = require('config'),
-  crypto = require('crypto'),
-  express = require('express'),
-  https = require('https'),
-  request = require('request');
+app.set('port', (process.env.PORT || 5000));
 
+app.use(express.static(__dirname + '/public'));
 
 
 var router = express();
 
-router.get('/webhook',function(req,res){
-  res.send('ok')
-})
-
-router.get('/', function (req, res) {
-  res.send('Hello World!');
+app.get('/', function(request, response) {
+  response.render('pages/index');
 });
 
-router.listen(8080, function () {
-  console.log('Example app listening on port 8080!');
+app.listen(app.get('port'), function() {
+  console.log('Node app is running on port', app.get('port'));
 });
