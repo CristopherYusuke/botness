@@ -9,7 +9,8 @@ app.use(express.static(__dirname + '/public'));
 var router = express();
 
 app.get('/', function(request, response) {
-  response.render('pages/index');
+  // response.render('/views/pages/index');
+  response.send('hello world')
 });
 
 app.listen(app.get('port'), function() {
