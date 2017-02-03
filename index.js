@@ -14,12 +14,17 @@ app.get('/', function(request, response) {
 });
 
 app.get('/teste',function (req,res) {
-  // res.setHeader('Content-Type', 'application/json');
-  var retorno = {
-    prop:"ola mundo"
-  }
+  res.setHeader('Content-Type', 'application/json');
+  var retorno = [
+    {prop:"ola mundo"},
+    {prop:"ola mundo"},
+    {prop:"ola mundo"},
+    {prop:"ola mundo"},
+    {prop:"ola mundo"},
+    {prop:"ola mundo"}
+  ]
 
-  res.send("ola mundo")
+  res.send( JSON.stringify(retorno))
 })
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
