@@ -24,12 +24,17 @@ app.get('/token/:token',function (req,res) {
         retorno = {
   "messages": [
     {
-      "text":  "Valid age to register is 21 and over. At this time we do not lend money to customers under the age of 21.",
+      "text":  "O que gostaria de fazer agora ?",
       "quick_replies": [
         {
-          "title":"Ok! Continue",
-          "block_names":["relatorios"]
-        }
+          "title":"teste",
+          "block_name":"relatorios"
+      },
+      {
+        "title":"teste",
+        "block_name":'lib_compras'
+    }
+
       ]
     }
   ]
