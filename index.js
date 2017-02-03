@@ -31,7 +31,7 @@ app.get('/token/:token/:nome/:sobrenome',function (req,res) {
         "type": "template",
         "payload": {
           "template_type": "button",
-          "text": "Olá"+ nome + " "+sobrenome+", oque o Sr(a) gostaria de fazer" ,
+          "text": "Olá "+ nome + " "+sobrenome+", oque o Sr(a) gostaria de fazer" ,
           "buttons": [
             {
               "type": "show_block",
@@ -46,7 +46,7 @@ app.get('/token/:token/:nome/:sobrenome',function (req,res) {
             {
               "type": "show_block",
               "block_name": "extras",
-              "title": "Relatório"
+              "title": "Extras"
             }
           ]
         }
@@ -55,7 +55,26 @@ app.get('/token/:token/:nome/:sobrenome',function (req,res) {
   ]
 }
     }else{
-        retorno.messages.push({text:"Token invalido!"})
+        retorno ={
+  "messages": [
+    {
+      "attachment": {
+        "type": "template",
+        "payload": {
+          "template_type": "button",
+          "text": nome + ", algo deu errado , gostaria de tentar novamente ?" ,
+          "buttons": [
+            {
+              "type": "show_block",
+              "block_name": "login",
+              "title": "Fazer Login novamente"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
     }
 
   res.send( JSON.stringify(retorno))
