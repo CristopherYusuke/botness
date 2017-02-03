@@ -15,12 +15,11 @@ app.get('/', function(request, response) {
 
 app.get('/teste',function (req,res) {
   res.setHeader('Content-Type', 'application/json');
-  res.send( JSON.stringify({
-      "speech": "teste sem erro ",
-      "displayText": "teste sem erro ",
-      "data": "",
-      "source": "Programming Assitant"
-    }))
+  var retorno = {
+    prop:"ola mundo"
+  }
+
+  res.send(JSON.stringify(retorno))
 })
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
