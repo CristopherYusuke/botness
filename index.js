@@ -27,13 +27,13 @@ app.get('/token/:token',function (req,res) {
       "text":  "O que gostaria de fazer agora ?",
       "quick_replies": [
         {
-          "title":"teste",
-          "block_name":"relatorios"
+          "title":"relatorios",
+          "block_names":["relatorios"]
       },
       {
-        "title":"teste",
-        "block_name":'lib_compras'
-    }
+        "title":"Liberar compras",
+        "block_names":["lib_compras"]
+      }
 
       ]
     }
