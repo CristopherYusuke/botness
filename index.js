@@ -16,8 +16,8 @@ app.get('/', function(request, response) {
 app.get('/teste',function (req,res) {
   res.setHeader('Content-Type', 'application/json');
   res.send( JSON.stringify({
-      "speech": text,
-      "displayText": text,
+      "speech": "teste sem erro ",
+      "displayText": "teste sem erro ",
       "data": "",
       "source": "Programming Assitant"
     }))
