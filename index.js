@@ -15,14 +15,12 @@ app.get('/', function(request, response) {
 
 app.get('/teste',function (req,res) {
   res.setHeader('Content-Type', 'application/json');
-  var retorno = [
-    {prop:"ola mundo"},
-    {prop:"ola mundo"},
-    {prop:"ola mundo"},
-    {prop:"ola mundo"},
-    {prop:"ola mundo"},
-    {prop:"ola mundo"}
-  ]
+  var retorno = {
+ "messages": [
+   {"text": "Welcome to our store!"},
+   {"text": "How can I help you?"}
+ ]
+}
 
   res.send( JSON.stringify(retorno))
 })
