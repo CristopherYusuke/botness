@@ -13,6 +13,9 @@ app.get('/', function(request, response) {
   response.send('hello world')
 });
 
+app.get('/teste',function (req,res) {
+  response.send({teste:"teste"})
+})
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
 });
