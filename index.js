@@ -10,11 +10,16 @@ var router = express();
 
 app.get('/', function(request, response) {
   // response.render('/views/pages/index');
-  response.send('hello world')
+  response.send('hello world teste deploy automatico')
 });
 
 app.get('/teste',function (req,res) {
-  response.send({teste:"teste"})
+  // res.setHeader('Content-Type', 'application/json');
+  var retorno = {
+    prop:"ola mundo"
+  }
+
+  res.send("ola mundo")
 })
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
