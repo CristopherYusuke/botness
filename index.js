@@ -24,18 +24,25 @@ app.get('/token/:token',function (req,res) {
         retorno = {
   "messages": [
     {
-      "text":  "O que gostaria de fazer agora ?",
-      "quick_replies": [
-        {
-          "title":"relatorios",
-          "block_names":["relatorios"]
-      },
-      {
-        "title":"Liberar compras",
-        "block_names":["lib_compras"]
+      "attachment": {
+        "type": "template",
+        "payload": {
+          "template_type": "button",
+          "text": "Hello!",
+          "buttons": [
+            {
+              "type": "show_block",
+              "block_name": "some block name",
+              "title": "Show the block!"
+            },
+            {
+              "type": "web_url",
+              "url": "https://petersapparel.parseapp.com/buy_item?item_id=100",
+              "title": "Buy Item"
+            }
+          ]
+        }
       }
-
-      ]
     }
   ]
 }
