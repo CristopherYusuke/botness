@@ -23,15 +23,16 @@ app.get('/token/:token',function (req,res) {
         // retorno.messages.push({text:"Olá marcao tudo bom com voce ?"})
         retorno = {
           "messages": [
-            {
-              "text":  "testRedirectInQuickReply",
-              "quick_replies": [
                 {
-                  "title":"relatorio",
-                  "block_name":'relatorio'
+                    "text":  "Bla Blla Bla teste teste ",
+                    "quick_replies": [
+                        {
+                        "type":"button",
+                        "title":"relatorio",
+                        "block_name":'relatorio'
+                        }
+                    ]
                 }
-              ]
-            }
           ]
         }
     }else{
