@@ -22,9 +22,11 @@ app.get('/token/:token',function (req,res) {
     if(token == "marcao"){
         // retorno.messages.push({text:"Olá marcao tudo bom com voce ?"})
         retorno = {
-          "type": "block",
-          "block_name": "relatorio",
-          "title": "relatorio"
+          "go_to_block":
+            {
+              "block_name": "relatorio"
+            },
+          "messages":[]
         }
     }else{
         retorno.messages.push({text:"Token invalido!"})
