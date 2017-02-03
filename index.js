@@ -13,9 +13,12 @@ app.get('/', function(request, response) {
   response.send('hello world teste deploy automatico')
 });
 
-app.get('/token/:token',function (req,res) {
+app.get('/token/:token/:nome/:sobrenome',function (req,res) {
     res.setHeader('Content-Type', 'application/json');
     var token = req.params.token;
+    var nome = req.params.nome;
+    var sobrenome = req.params.sobrenome;
+
     var retorno = {
         "messages": []
     }
@@ -28,17 +31,22 @@ app.get('/token/:token',function (req,res) {
         "type": "template",
         "payload": {
           "template_type": "button",
-          "text": "Hello!",
+          "text": "Olá"+ nome + " "+sobrenome+", oque o Sr(a) gostaria de fazer" ,
           "buttons": [
             {
               "type": "show_block",
-              "block_name": "some block name",
-              "title": "Show the block!"
+              "block_name": "relatorio",
+              "title": "Relatório"
             },
             {
-              "type": "web_url",
-              "url": "https://petersapparel.parseapp.com/buy_item?item_id=100",
-              "title": "Buy Item"
+              "type": "show_block",
+              "block_name": "lib_compras",
+              "title": "Liberar Compras"
+            },
+            {
+              "type": "show_block",
+              "block_name": "extras",
+              "title": "Relatório"
             }
           ]
         }
