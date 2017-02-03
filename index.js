@@ -13,14 +13,17 @@ app.get('/', function(request, response) {
   response.send('hello world teste deploy automatico')
 });
 
-app.get('/teste',function (req,res) {
-  res.setHeader('Content-Type', 'application/json');
-  var retorno = {
- "messages": [
-   {"text": "Welcome to our store!"},
-   {"text": "How can I help you?"}
- ]
-}
+app.get('/token/:token',function (req,res) {
+    res.setHeader('Content-Type', 'application/json');
+    var token = req.params.token;
+    var retorno = {
+        "messages": []
+    }
+    if(token == "marcao"){
+        retorno.messages.push({text:"Olá marcao tudo bom com voce ?"})
+    }else{
+        retorno.messages.push({text:"Token invalido!"})
+    }
 
   res.send( JSON.stringify(retorno))
 })
