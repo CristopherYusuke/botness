@@ -22,7 +22,7 @@ app.get('/token/:token',function (req,res) {
     if(token == "marcao"){
         // retorno.messages.push({text:"Olá marcao tudo bom com voce ?"})
         retorno = {
-          "type": "show_block",
+          "type": "block",
           "block_name": "relatorio",
           "title": "relatorio"
         }
