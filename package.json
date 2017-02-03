@@ -1,0 +1,19 @@
+{
+  "name": "botness",
+  "version": "1.0.0",
+  "description": "Bot for business",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CristopherYusuke/botness.git"
+  },
+  "author": "Cristopher Yusuke",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CristopherYusuke/botness/issues"
+  },
+  "homepage": "https://github.com/CristopherYusuke/botness#readme"
+}
