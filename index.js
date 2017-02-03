@@ -22,9 +22,17 @@ app.get('/token/:token',function (req,res) {
     if(token == "marcao"){
         // retorno.messages.push({text:"Olá marcao tudo bom com voce ?"})
         retorno = {
-          "type": "show_block",
-          "block_name": "relatorios",
-          "title": "relatorios"
+          "messages": [
+            {
+              "text":  "testRedirectInQuickReply",
+              "quick_replies": [
+                {
+                  "title":"relatorio",
+                  "block_name":'relatorio'
+                }
+              ]
+            }
+          ]
         }
     }else{
         retorno.messages.push({text:"Token invalido!"})
