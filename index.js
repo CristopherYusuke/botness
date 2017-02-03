@@ -28,7 +28,7 @@ app.get('/token/:token',function (req,res) {
       "quick_replies": [
         {
           "title":"Ok! Continue",
-          "block_names":["end_conversation"]
+          "block_names":["relatorios"]
         }
       ]
     }
