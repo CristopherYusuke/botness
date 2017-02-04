@@ -84,7 +84,7 @@ app.get('/listaCompra',function(req,res){
                 "type": "template",
                 "payload": {
                   "template_type": "button",
-                  "text": "Olá "+ nome + " "+sobrenome+", oque o Sr(a) gostaria de fazer" ,
+                  "text": "Lista de Compra" ,
                   "buttons": [
                     {
                       "type": "show_block",
