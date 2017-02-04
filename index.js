@@ -19,62 +19,60 @@ app.get('/token/:token/:nome/:sobrenome',function (req,res) {
     var nome = req.params.nome;
     var sobrenome = req.params.sobrenome;
 
-    var retorno = {
-        "messages": []
-    }
+    var retorno = {};
+    
     if(token == "facebot"){
-        // retorno.messages.push({text:"Olá marcao tudo bom com voce ?"})
         retorno = {
-  "messages": [
-    {
-      "attachment": {
-        "type": "template",
-        "payload": {
-          "template_type": "button",
-          "text": "Olá "+ nome + " "+sobrenome+", oque o Sr(a) gostaria de fazer" ,
-          "buttons": [
+          "messages": [
             {
-              "type": "show_block",
-              "block_name": "relatorio",
-              "title": "Relatório"
-            },
-            {
-              "type": "show_block",
-              "block_name": "lib_compras",
-              "title": "Liberar Compras"
-            },
-            {
-              "type": "show_block",
-              "block_name": "extras",
-              "title": "Extras"
+              "attachment": {
+                "type": "template",
+                "payload": {
+                  "template_type": "button",
+                  "text": "Olá "+ nome + " "+sobrenome+", oque o Sr(a) gostaria de fazer" ,
+                  "buttons": [
+                    {
+                      "type": "show_block",
+                      "block_name": "relatorio",
+                      "title": "Relatório"
+                    },
+                    {
+                      "type": "show_block",
+                      "block_name": "lib_compras",
+                      "title": "Liberar Compras"
+                    },
+                    {
+                      "type": "show_block",
+                      "block_name": "extras",
+                      "title": "Extras"
+                    }
+                  ]
+                }
+              }
             }
           ]
         }
-      }
-    }
-  ]
-}
     }else{
-        retorno ={
-  "messages": [
-    {
-      "attachment": {
-        "type": "template",
-        "payload": {
-          "template_type": "button",
-          "text": nome + ", algo deu errado , gostaria de tentar novamente ?" ,
-          "buttons": [
+        retorno = {
+          "messages": [
             {
-              "type": "show_block",
-              "block_name": "login",
-              "title": "Fazer Login novamente"
+              "attachment": {
+                "type": "template",
+                "payload": {
+                  "template_type": "button",
+                  "text": nome + ", algo deu errado , gostaria de tentar novamente ?" ,
+                  "buttons": [
+                    {
+                      "type": "show_block",
+                      "block_name": "login",
+                      "title": "Fazer Login novamente"
+                    }
+                  ]
+                }
+              }
             }
           ]
         }
-      }
-    }
-  ]
-}
     }
 
   res.send( JSON.stringify(retorno))
