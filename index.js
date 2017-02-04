@@ -5,11 +5,7 @@ app.set('port', (process.env.PORT || 5000));
 
 app.use(express.static(__dirname + '/public'));
 
-
-var router = express();
-
 app.get('/', function(request, response) {
-  // response.render('/views/pages/index');
   response.send('hello world teste deploy automatico')
 });
 
@@ -20,7 +16,7 @@ app.get('/token/:token/:nome/:sobrenome',function (req,res) {
     var sobrenome = req.params.sobrenome;
 
     var retorno = {};
-    
+
     if(token == "facebot"){
         retorno = {
           "messages": [
@@ -53,6 +49,7 @@ app.get('/token/:token/:nome/:sobrenome',function (req,res) {
           ]
         }
     }else{
+
         retorno = {
           "messages": [
             {
@@ -75,7 +72,7 @@ app.get('/token/:token/:nome/:sobrenome',function (req,res) {
         }
     }
 
-  res.send( JSON.stringify(retorno))
+  res.send(JSON.stringify(retorno))
 })
 
 app.get('/listaCompra',function(req,res){
