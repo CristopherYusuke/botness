@@ -22,7 +22,7 @@ app.get('/token/:token/:nome/:sobrenome',function (req,res) {
     var retorno = {
         "messages": []
     }
-    if(token == "marcao"){
+    if(token == "facebot"){
         // retorno.messages.push({text:"Olá marcao tudo bom com voce ?"})
         retorno = {
   "messages": [
@@ -79,6 +79,51 @@ app.get('/token/:token/:nome/:sobrenome',function (req,res) {
 
   res.send( JSON.stringify(retorno))
 })
+
+app.get('/listaCompra',function(req,res){
+    res.setHeader('Content-Type', 'application/json');
+    var retorno = {
+        "messages": [
+            {
+              "attachment": {
+                "type": "template",
+                "payload": {
+                  "template_type": "button",
+                  "text": "Olá "+ nome + " "+sobrenome+", oque o Sr(a) gostaria de fazer" ,
+                  "buttons": [
+                    {
+                      "type": "show_block",
+                      "title": "Compra 1 "
+                    },
+                    {
+                      "type": "show_block",
+                      "title": "Compra 2"
+                    },
+                    {
+                      "type": "show_block",
+                      "title": "Compra 3"
+                    }
+                  ]
+                }
+              }
+            }
+        ]
+    }
+    res.send( JSON.stringify(retorno))
+})
+
+app.get('/compra/:idCompra',function(req,res){
+    res.setHeader('Content-Type', 'application/json');
+    var idCompra = req.params.idCompra;
+    var retorno = {
+        "messages"[
+            {"text":idCompra +" pego pelo parametro"}
+        ]
+    }
+    res.send( JSON.stringify(retorno))
+})
+
+
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
 });
