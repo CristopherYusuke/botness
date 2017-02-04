@@ -131,10 +131,10 @@ app.get('/solicitar',function(req,res){
         "messages":[
             {"text":"Faturamento liquido R$90000,00"},
             {"text":"Faturamento bruto R$140000,00 "}
-        ]}
+        ]
     }
-    res.send( JSON.stringify(retorno))
 
+    res.send( JSON.stringify(retorno))
 })
 
 app.listen(app.get('port'), function() {
