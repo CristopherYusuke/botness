@@ -99,7 +99,7 @@ app.get('/compra/:idCompra',function(req,res){
             "type": "template",
             "payload": {
               "template_type": "button",
-              "text": array[idCompra+1],
+              "text": array[idCompra].text,
               "buttons": [
                 {
                   "type": "show_block",
