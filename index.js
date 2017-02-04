@@ -34,7 +34,7 @@ app.get('/token/:token/:nome/:sobrenome',function (req,res) {
                     },
                     {
                       "type": "show_block",
-                      "block_name": "lib_compras",
+                      "block_name": "lista_compra",
                       "title": "Liberar Compras"
                     },
                     {
