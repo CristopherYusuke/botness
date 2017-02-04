@@ -41,13 +41,8 @@ app.get('/token/:token/:nome/:sobrenome',function (req,res) {
                       "type": "show_block",
                       "block_name": "extras",
                       "title": "Extras"
-                  },
-                  {
-                    "type": "show_block",
-                    "block_name": "relatorio_faturamento",
-                    "title": "Relatorio faturamento"
-                }
-                  ]
+                    }
+                 ]
                 }
               }
             }
