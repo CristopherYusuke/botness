@@ -41,7 +41,12 @@ app.get('/token/:token/:nome/:sobrenome',function (req,res) {
                       "type": "show_block",
                       "block_name": "extras",
                       "title": "Extras"
-                    }
+                  },
+                  {
+                    "type": "show_block",
+                    "block_name": "relatorio_faturamento",
+                    "title": "Relatorio faturamento"
+                }
                   ]
                 }
               }
@@ -78,8 +83,8 @@ var array = [
     {"text":"id / descrição / valor "},
     {"text":"1) Compra tecido  R$300,00"},
     {"text":"2) Compra maquina R$4000,00"},
-    {"text":"4) Compra computador R$2500,00 "},
-    {"text":"5) compra acessorios R$500,00"},
+    {"text":"3) Compra computador R$2500,00 "},
+    {"text":"4) compra acessorios R$500,00"},
 ]
 app.get('/listaCompra',function(req,res){
     res.setHeader('Content-Type', 'application/json');
@@ -109,7 +114,7 @@ app.get('/compra/:idCompra',function(req,res){
                 {
                   "type": "show_block",
                   "block_name": "recusar",
-                  "title": "Recusar"
+                  "title": "Reprovar"
                 }
               ]
             }
@@ -120,6 +125,17 @@ app.get('/compra/:idCompra',function(req,res){
     res.send( JSON.stringify(retorno))
 })
 
+app.get('/solicitar',function(req,res){
+    res.setHeader('Content-Type', 'application/json');
+    var retorno = {
+        "messages":[
+            {"text":"Faturamento liquido R$90000,00"},
+            {"text":"Faturamento bruto R$140000,00 "}
+        ]}
+    }
+    res.send( JSON.stringify(retorno))
+
+})
 
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
