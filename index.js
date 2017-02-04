@@ -29,7 +29,7 @@ app.get('/token/:token/:nome/:sobrenome',function (req,res) {
                   "buttons": [
                     {
                       "type": "show_block",
-                      "block_name": "relatorio",
+                      "block_name": "relatorios",
                       "title": "Relatório"
                     },
                     {
@@ -77,33 +77,19 @@ app.get('/token/:token/:nome/:sobrenome',function (req,res) {
 
 app.get('/listaCompra',function(req,res){
     res.setHeader('Content-Type', 'application/json');
-    var retorno = {
-        "messages": [
-            {
-              "attachment": {
-                "type": "template",
-                "payload": {
-                  "template_type": "button",
-                  "text": "Lista de Compra" ,
-                  "buttons": [
-                    {
-                      "type": "show_block",
-                      "title": "Compra 1 "
-                    },
-                    {
-                      "type": "show_block",
-                      "title": "Compra 2"
-                    },
-                    {
-                      "type": "show_block",
-                      "title": "Compra 3"
-                    }
-                  ]
-                }
-              }
-            }
-        ]
+    var retorno ={
+  "messages": [
+    {
+      "text":  "Escolha uma das compras",
+      "quick_replies": [
+        {
+          "title":"go",
+          "block_names":["Compra 1", "compra 3" ,"Compra 2"]
+        }
+      ]
     }
+  ]
+}
     res.send( JSON.stringify(retorno))
 })
 //
