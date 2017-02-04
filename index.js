@@ -74,32 +74,48 @@ app.get('/token/:token/:nome/:sobrenome',function (req,res) {
 
   res.send(JSON.stringify(retorno))
 })
-
+var array = [
+    {"text":"id / descrição / valor "},
+    {"text":"1) Compra tecido  R$300,00"},
+    {"text":"2) Compra maquina R$4000,00"},
+    {"text":"4) Compra computador R$2500,00 "},
+    {"text":"5) compra acessorios R$500,00"},
+]
 app.get('/listaCompra',function(req,res){
     res.setHeader('Content-Type', 'application/json');
-    var retorno ={
-  "messages": [
-    {
-      "text":  "Escolha uma das compras",
-      "quick_replies": [
-        {
-          "title":"go",
-          "block_names":["Compra 1", "compra 3" ,"Compra 2"]
-        }
-      ]
+    var retorno = {
+        "messages":array
     }
-  ]
-}
     res.send( JSON.stringify(retorno))
 })
 //
 app.get('/compra/:idCompra',function(req,res){
     res.setHeader('Content-Type', 'application/json');
-    var idCompra = req.params.idCompra;
-    var retorno = {
-        "messages":[
-            {"text":idCompra +" pego pelo parametro"}
-        ]
+    var idCompra = parseInt(req.params.idCompra);
+    var retorno ={
+      "messages": [
+        {
+          "attachment": {
+            "type": "template",
+            "payload": {
+              "template_type": "button",
+              "text": array[idCompra+1],
+              "buttons": [
+                {
+                  "type": "show_block",
+                  "block_name": "aprovar",
+                  "title": "Aprovar"
+                },
+                {
+                  "type": "show_block",
+                  "block_name": "recusar",
+                  "title": "Recusar"
+                }
+              ]
+            }
+          }
+        }
+      ]
     }
     res.send( JSON.stringify(retorno))
 })
