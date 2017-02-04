@@ -106,12 +106,12 @@ app.get('/listaCompra',function(req,res){
     }
     res.send( JSON.stringify(retorno))
 })
-
+//
 app.get('/compra/:idCompra',function(req,res){
     res.setHeader('Content-Type', 'application/json');
     var idCompra = req.params.idCompra;
     var retorno = {
-        "messages"[
+        "messages":[
             {"text":idCompra +" pego pelo parametro"}
         ]
     }
